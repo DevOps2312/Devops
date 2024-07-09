@@ -11,8 +11,17 @@
 ####################################################################################
 
 
+function helper {
+    commnd_line_args_expected=2
+    if [ $# -ne $commnd_line_args_expected ]; then
+            echo "Please enter valid command line arguments"
+            echo "Usage: $0 <organization> <repository> "
+            exit 1
+    fi
+}
+
 # To check if command line arguments are correctly passed
-helper()
+helper "$@"
 
 # GitHub API URL
 API_URL="https://api.github.com"
@@ -50,13 +59,6 @@ function list_users_with_read_access {
     fi
 }
 
-function helper {
-    commnd_line_args_expected = 2
-    if[ $# -ne commnd_line_args_expected ];then
-            echo "please enter valid command line arguments"
-            echo "asd"
-    fi
-}
 
 # Main script
 
